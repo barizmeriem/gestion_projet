@@ -53,6 +53,7 @@ public class MembreService extends AbstractFacade<Membre> {
      public List findByCin(int CIN){
          return  getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.id="+CIN).getResultList();
      }
+    
 }
 
   
