@@ -38,6 +38,4 @@ public class MembreHelper extends AbstractHelper<Membre> {
         super(titres, jTable);
     }
 
-    
-
 }
