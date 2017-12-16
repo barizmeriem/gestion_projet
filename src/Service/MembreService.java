@@ -33,7 +33,7 @@ public class MembreService extends AbstractFacade<Membre> {
      
      
      
-     public int saveMembre(double montant,String grade, Projet projet) {
+     public int saveMembre(double montant,String grade,int CIN ,Projet projet) {
      Membre membre=new Membre();
      int gradeMembre=1;
      if(!grade.equalsIgnoreCase("CHEF")&& !grade.equalsIgnoreCase("EMPLOYE")){

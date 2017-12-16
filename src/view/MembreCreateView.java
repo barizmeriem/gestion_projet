@@ -101,6 +101,12 @@ public class MembreCreateView extends javax.swing.JFrame {
 
         jLabel4.setText("CIN");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -194,12 +200,10 @@ public class MembreCreateView extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Projet projet = null;
-        if (jComboBox1.getSelectedIndex() - 1 < 0) {
-            projet = projets.get(jComboBox1.getSelectedIndex() - 1);
-        }
+        Projet projet=projets.get(jComboBox1.getSelectedIndex()-1);
+        membreService.saveMembre(new Double(jTextField1.getText()),jComboBox2.getSelectedItem()+"",new Integer(jTextField2.getText()) ,projet);
+     
         
-        membreService.saveMembre(new Double(jTextField1.getText()), jComboBox2.getSelectedItem() + "", projet);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -207,6 +211,10 @@ public class MembreCreateView extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
