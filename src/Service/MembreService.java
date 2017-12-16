@@ -35,13 +35,13 @@ public class MembreService extends AbstractFacade<Membre> {
      
      public int saveMembre(double montant,String grade,int CIN ,Projet projet) {
      Membre membre=new Membre();
-     int gradeMembre=1;
+     
      if(!grade.equalsIgnoreCase("CHEF")&& !grade.equalsIgnoreCase("EMPLOYE")){
          return -1;
      }else if(grade.equalsIgnoreCase("CHEF")){
-         gradeMembre=2;
+           return 1;
      }else if(grade.equalsIgnoreCase("EMPLOYE")){
-         gradeMembre=1;
+           return 1;
      }
      membre.setGrade(grade);
      membre.setBudget(montant);
