@@ -31,7 +31,9 @@ public class Membre implements Serializable {
     private double budget;
     @ManyToOne
     private Equipe equipe;
-
+    @ManyToOne
+    private Projet projet;
+    
     public Membre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, double budget) {
         this.CIN = CIN;
         this.password = password;
@@ -49,6 +51,14 @@ public class Membre implements Serializable {
         this.CIN = CIN;
     }
 
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
+    }
+    
     public int getCIN() {
         return CIN;
     }

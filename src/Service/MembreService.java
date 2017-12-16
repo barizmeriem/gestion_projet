@@ -14,7 +14,6 @@ import java.util.List;
  * @author M
  */
 public class MembreService extends AbstractFacade<Membre> {
-
     public MembreService() {
         super(Membre.class);
     }
@@ -50,7 +49,7 @@ public class MembreService extends AbstractFacade<Membre> {
      return 1;
      }
 
-     public List findByCin(int CIN){
+     public List<Membre> findByCin(int CIN){
          return  getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.id="+CIN).getResultList();
      }
     

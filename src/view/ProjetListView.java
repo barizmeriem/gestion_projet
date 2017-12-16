@@ -5,9 +5,11 @@
  */
 package view;
 
+import Service.MembreService;
 import bean.Projet;
 import helper.ProjetHelper;
 import Service.ProjetService;
+import helper.MembreHelper;
 
 /**
  *
@@ -16,7 +18,9 @@ import Service.ProjetService;
 public class ProjetListView extends javax.swing.JFrame {
 
     ProjetService projetService = new ProjetService();
+    MembreService membreService = new MembreService();
     ProjetHelper projetHelper;
+    MembreHelper membreHelper;
 
     public ProjetListView() {
         initComponents();
@@ -25,6 +29,7 @@ public class ProjetListView extends javax.swing.JFrame {
 
     private void initHelper() {
         projetHelper = new ProjetHelper(jTable1, projetService.findAll());
+        membreHelper = new MembreHelper(jTable2);
     }
 
     @SuppressWarnings("unchecked")
@@ -207,21 +212,23 @@ public class ProjetListView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
      private Projet getParam() {
-     Projet p =new Projet();
-     p.setId(new Integer(jTextField1.getText()+""));
-     p.setMontant(new Double(jTextField2.getText()+""));
-     return p;
+        Projet p = new Projet();
+        p.setId(new Integer(jTextField1.getText() + ""));
+        p.setMontant(new Double(jTextField2.getText() + ""));
+        return p;
     }
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         Projet projet = projetHelper.getSelected();
         jTextField1.setText(projet.getId() + "");
         jTextField2.setText(projet.getMontant() + "");
+
+        membreHelper.setList(membreService.findByCin(projetHelper.getSelected().getId()));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Projet p=getParam();
+        Projet p = getParam();
         projetService.create(p);
         projetHelper.save(p);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -248,9 +255,9 @@ public class ProjetListView extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Projet p=getParam();
-       projetService.edit(p);
-       projetHelper.update(p);
+        Projet p = getParam();
+        projetService.edit(p);
+        projetHelper.update(p);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

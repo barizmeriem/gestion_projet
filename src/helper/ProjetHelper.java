@@ -36,7 +36,6 @@ public class ProjetHelper extends AbstractHelper<Projet> {
         super(titres, jTable);
     }
 
-   
 
   
 }

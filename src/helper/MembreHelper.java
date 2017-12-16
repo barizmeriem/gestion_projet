@@ -19,7 +19,7 @@ public class MembreHelper extends AbstractHelper<Membre> {
 
     static {
         titres = new AbstractHelperItem[]{
-            new AbstractHelperItem("CIN ", "cin"),
+            new AbstractHelperItem("CIN ", "CIN"),
             new AbstractHelperItem("BUDGET ", "budget"),
             new AbstractHelperItem("GRADE ", "grade"),
             new AbstractHelperItem("JOUR-HOMME ", "jour_homme"),
