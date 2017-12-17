@@ -28,13 +28,13 @@ public class Membre implements Serializable {
     private String prenom;
     private int jour_homme;
     private String grade;
-    private double budget;
+    private Double budget;
     @ManyToOne
     private Equipe equipe;
     @ManyToOne
     private Projet projet;
     
-    public Membre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, double budget) {
+    public Membre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, Double budget) {
         this.CIN = CIN;
         this.password = password;
         this.nom = nom;
@@ -108,11 +108,11 @@ public class Membre implements Serializable {
         this.grade = grade;
     }
 
-    public double getBudget() {
+    public Double getBudget() {
         return budget;
     }
 
-    public void setBudget(double budget) {
+    public void setBudget(Double budget) {
         this.budget = budget;
     }
 

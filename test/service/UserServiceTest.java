@@ -6,6 +6,7 @@
 package service;
 
 import Service.UserService;
+import bean.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,6 +39,19 @@ public class UserServiceTest {
     public void tearDown() {
     }
 
+    
+    /**
+     * Test of create method, of class UserService.
+     */
+//    @Test
+//    public void testCreate() {
+//        System.out.println("create");
+//        User user = null;
+//        UserService instance = new UserService();
+//        instance.create(user);
+////        TODO review the generated test code and remove the default call to fail.
+//    }
+
     /**
      * Test of seConnecter method, of class UserService.
      */
@@ -58,7 +72,7 @@ public class UserServiceTest {
     @Test
     public void testCreerUser() {
         System.out.println("creerUser");
-        String id = "sir";
+        String id = "siro";
         String password = "licence";
         UserService instance = new UserService();
         int expResult = 1;

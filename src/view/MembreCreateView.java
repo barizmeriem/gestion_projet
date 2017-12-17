@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Service.ProjetService;
 import Service.MembreService;
+import java.math.BigDecimal;
 
 /**
  *
@@ -28,6 +29,7 @@ public class MembreCreateView extends javax.swing.JFrame {
 
         initComponents();
         initComboBox1();
+       
     }
 
     private void initComboBox1() {

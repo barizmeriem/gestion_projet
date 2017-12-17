@@ -17,11 +17,6 @@ public class UserService  extends AbstractFacade<User> {
     public UserService() {
         super(User.class);
     }
-//    @Override
-//    public void create(User user){
-//        user.setPassword(HashageUtil.sha256(user.getPassword()));
-//        super.create(user);
-//    }
     public int creerUser(String id,String password){
         User user=new User();
         user.setId(id);
@@ -39,5 +34,22 @@ public class UserService  extends AbstractFacade<User> {
             return 1;
        
     }
+    
+//     public int seConnecter(User user){
+//        User loadUser=find(user.getId());
+//        if(loadUser==null){
+//            return -1;
+//        }else if(!(loadUser.getPassword().equals(HashageUtil.sha256(user.getPassword())))){
+//            return -2;
+//        }
+//            return 1;
+//       
+//    }
+//     
+//     @Override
+//    public void create(User user){
+//        user.setPassword(HashageUtil.sha256(user.getPassword()));
+//        super.create(user);
+//    }
 }
     

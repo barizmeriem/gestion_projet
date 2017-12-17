@@ -8,6 +8,7 @@ package view;
 import bean.User;
 import javax.swing.JOptionPane;
 import Service.UserService;
+import Util.Session;
 
 /**
  *
@@ -124,6 +125,7 @@ public class Connexion extends javax.swing.JFrame {
         User user = getParam();
         int res = userService.seConnecter(user);
         if (res > 0) {
+//            Session.updateAttribute(user, "connectedUser");
             JOptionPane.showMessageDialog(null, "CONNECTION AVEC SUCCES BIENVENU:" + user.getId(), "INFO", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "CONNECTION ECHEC", "ERROR", JOptionPane.ERROR_MESSAGE);

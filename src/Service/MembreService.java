@@ -17,7 +17,7 @@ public class MembreService extends AbstractFacade<Membre> {
     public MembreService() {
         super(Membre.class);
     }
-     public int creerMembre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, double budget){
+     public int creerMembre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, Double budget){
        Membre m=new Membre();
        m.setBudget(budget);
        m.setCIN(CIN);
@@ -29,10 +29,10 @@ public class MembreService extends AbstractFacade<Membre> {
        create(m);
      return 1;
      }
+   
      
      
-     
-     public int saveMembre(double budget,String grade,int CIN ,Projet projet) {
+     public int saveMembre(Double budget,String grade,int CIN ,Projet projet) {
      Membre membre=new Membre();
      
      if(!grade.equalsIgnoreCase("CHEF")&& !grade.equalsIgnoreCase("EMPLOYE")){
