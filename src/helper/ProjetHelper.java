@@ -20,7 +20,9 @@ public class ProjetHelper extends AbstractHelper<Projet> {
     static {
         titres = new AbstractHelperItem[]{
             new AbstractHelperItem("ID ", "id"),
-            new AbstractHelperItem("MONTANT ", "montant")};
+            new AbstractHelperItem("MONTANT ", "montant"),
+            new AbstractHelperItem("Avancement","avancement")};
+
 
     }
 
