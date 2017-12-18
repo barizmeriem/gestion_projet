@@ -14,46 +14,44 @@ import java.util.List;
  * @author M
  */
 public class MembreService extends AbstractFacade<Membre> {
+
     public MembreService() {
         super(Membre.class);
     }
-     public int creerMembre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, Double budget){
-       Membre m=new Membre();
-       m.setBudget(budget);
-       m.setCIN(CIN);
-       m.setJour_homme(jour_homme);
-       m.setGrade(grade);
-       m.setNom(nom);
-       m.setPassword(password);
-       m.setPrenom(prenom);
-       create(m);
-     return 1;
-     }
-   
-     
-     
-     public int saveMembre(Double budget,String grade,int CIN ,Projet projet) {
-     Membre membre=new Membre();
-     
-     if(!grade.equalsIgnoreCase("CHEF")&& !grade.equalsIgnoreCase("EMPLOYE")){
-         return -1;
-     }else if(grade.equalsIgnoreCase("CHEF")){
-           return 1;
-     }else if(grade.equalsIgnoreCase("EMPLOYE")){
-           return 2;
-     }
-     membre.setGrade(grade);
-     membre.setBudget(budget);
-     
-     create(membre);
-     return 1;
-     }
 
-     public List<Membre> findByCin(int CIN){
-         return  getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.id="+CIN).getResultList();
-     }
-    
+    public int creerMembre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, Double budget) {
+        Membre m = new Membre();
+        m.setBudget(budget);
+        m.setCIN(CIN);
+        m.setJour_homme(jour_homme);
+        m.setGrade(grade);
+        m.setNom(nom);
+        m.setPassword(password);
+        m.setPrenom(prenom);
+        create(m);
+        return 1;
+    }
+
+    public int saveMembre(Double budget, String grade, int CIN, Projet projet) {
+        Membre membre = new Membre();
+
+        if (!grade.equalsIgnoreCase("CHEF") && !grade.equalsIgnoreCase("EMPLOYE")) {
+            return -1;
+        } else if (grade.equalsIgnoreCase("CHEF")) {
+            return 1;
+        } else if (grade.equalsIgnoreCase("EMPLOYE")) {
+            return 2;
+        }
+        membre.setGrade(grade);
+        membre.setBudget(budget);
+
+        create(membre);
+        return 1;
+    }
+
+    public List<Membre> findByCin(int id) {
+        List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.projet.id=" + id).getResultList();
+        return res;
+    }
+
 }
-
-  
-
