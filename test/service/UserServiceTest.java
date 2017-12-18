@@ -72,8 +72,8 @@ public class UserServiceTest {
     @Test
     public void testCreerUser() {
         System.out.println("creerUser");
-        String id = "youyou";
-        String password = "licence";
+        String id = "y";
+        String password = "me";
         UserService instance = new UserService();
         int expResult = 1;
         int result = instance.creerUser(id, password);
