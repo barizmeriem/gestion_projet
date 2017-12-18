@@ -131,6 +131,8 @@ public class Connexion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "CONNECTION ECHEC", "ERROR", JOptionPane.ERROR_MESSAGE);
 
         }
+        this.setVisible(false);
+        new ProjetListView().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
