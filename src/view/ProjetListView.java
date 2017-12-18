@@ -32,7 +32,7 @@ public class ProjetListView extends javax.swing.JFrame {
     public ProjetListView() {
         initComponents();
         initHelper();
-//        jLabel4.setText("Bonjour:"+((User)Session.getAttribut("connectedUser")).getId());
+       jLabel4.setText("Bonjour:"+((User)Session.getAttribut("connectedUser")).getId());
     }
     
     @SuppressWarnings("unchecked")
