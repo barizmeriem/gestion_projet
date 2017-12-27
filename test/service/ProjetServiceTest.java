@@ -5,7 +5,8 @@
  */
 package service;
 
-import Service.UserService;
+import Service.ProjetService;
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author Rachid Aitbouzkri
  */
-public class UserServiceTest {
+public class ProjetServiceTest {
     
-    public UserServiceTest() {
+    public ProjetServiceTest() {
     }
     
     @BeforeClass
@@ -39,16 +40,21 @@ public class UserServiceTest {
     }
 
     /**
-     * Test of creerUser method, of class UserService.
+     * Test of creerProjet method, of class ProjetService.
      */
     @Test
-    public void testCreerUser() {
-        System.out.println("creerUser");
-        String id = "B";
-        String password = "K";
-        UserService instance = new UserService();
+    public void testCreerProjet() {
+        System.out.println("creerProjet");
+        int id = 1;
+        String nom = "POCKETube";
+        Date d_debut = null;
+        Date d_fin = null;
+        double avancement = 3000000.0;
+        double montant = 9000000.0;
+        int jour_homme = 120;
+        ProjetService instance = new ProjetService();
         int expResult = 1;
-        int result = instance.creerUser(id, password);
+        int result = instance.creerProjet(id, nom, d_debut, d_fin, avancement, montant, jour_homme);
         assertEquals(expResult, result);
 
     }

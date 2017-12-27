@@ -5,7 +5,7 @@
  */
 package service;
 
-import Service.UserService;
+import Service.MembreService;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Rachid Aitbouzkri
  */
-public class UserServiceTest {
+public class MembreServiceTest {
     
-    public UserServiceTest() {
+    public MembreServiceTest() {
     }
     
     @BeforeClass
@@ -39,16 +39,22 @@ public class UserServiceTest {
     }
 
     /**
-     * Test of creerUser method, of class UserService.
+     * Test of saveMembre method, of class MembreService.
      */
     @Test
-    public void testCreerUser() {
-        System.out.println("creerUser");
-        String id = "B";
-        String password = "K";
-        UserService instance = new UserService();
+    public void testSaveMembre() {
+        System.out.println("saveMembre");
+        String grade = "EMPLOYE";
+        int cin = 2;
+        String nom = "BO";
+        String prenom = "Y";
+        String password = "BH";
+        int jour_homme = 10;
+        int idprojet = 1;
+        int idequipe = 5;
+        MembreService instance = new MembreService();
         int expResult = 1;
-        int result = instance.creerUser(id, password);
+        int result = instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
         assertEquals(expResult, result);
 
     }

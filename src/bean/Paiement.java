@@ -6,11 +6,13 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,17 +25,16 @@ public class Paiement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private double avance;
-    private double reste_a_Paye;
+    private double montant;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date datePaiement;
     @ManyToOne
     private Projet projet;
 
-    public Projet getProjet() {
-        return projet;
-    }
-
-    public void setProjet(Projet projet) {
-        this.projet = projet;
+    public Paiement(int id, double montant, Date datePaiement) {
+        this.id = id;
+        this.montant = montant;
+        this.datePaiement = datePaiement;
     }
 
     public Paiement() {
@@ -43,26 +44,33 @@ public class Paiement implements Serializable {
         this.id = id;
     }
 
+    public Date getDatePaiement() {
+        return datePaiement;
+    }
+
+    public void setDatePaiement(Date datePaiement) {
+        this.datePaiement = datePaiement;
+    }
+
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
+    }
+
     public Paiement(int id, double avance, double reste_a_Paye) {
         this.id = id;
-        this.avance = avance;
-        this.reste_a_Paye = reste_a_Paye;
+        this.montant = avance;
     }
 
-    public double getAvance() {
-        return avance;
+    public double getMontant() {
+        return montant;
     }
 
-    public void setAvance(double avance) {
-        this.avance = avance;
-    }
-
-    public double getReste_a_Paye() {
-        return reste_a_Paye;
-    }
-
-    public void setReste_a_Paye(double reste_a_Paye) {
-        this.reste_a_Paye = reste_a_Paye;
+    public void setMontant(double montant) {
+        this.montant = montant;
     }
 
     public int getId() {
@@ -95,7 +103,7 @@ public class Paiement implements Serializable {
 
     @Override
     public String toString() {
-        return "Paiement{" + "id=" + id + ", avance=" + avance + ", reste_a_Paye=" + reste_a_Paye + '}';
+        return "Paiement{" + "id=" + id + ", montant=" + montant + ", datePaiement=" + datePaiement + '}';
     }
 
 }

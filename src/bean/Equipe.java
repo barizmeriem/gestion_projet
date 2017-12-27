@@ -8,9 +8,8 @@ package bean;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -22,24 +21,32 @@ public class Equipe implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nom;
-    private String chef;
     @OneToMany(mappedBy = "equipe")
-    private List<Membre> membres;
+    private List< Membre > members;
+    @ManyToOne
+    private Projet projet;
 
     public Equipe(int id) {
         this.id = id;
     }
 
-    public Equipe(int id, String nom, String chef) {
-        this.id = id;
-        this.nom = nom;
-        this.chef = chef;
+    public Equipe() {
     }
 
-    public Equipe() {
+    public Equipe(int id, String nom) {
+        this.id = id;
+        this.nom = nom;
+//        this.chef = chef;
+    }
+
+    public Projet getProjet() {
+        return projet;
+    }
+
+    public void setProjet(Projet projet) {
+        this.projet = projet;
     }
 
     public String getNom() {
@@ -50,22 +57,6 @@ public class Equipe implements Serializable {
         this.nom = nom;
     }
 
-    public String getChef() {
-        return chef;
-    }
-
-    public void setChef(String chef) {
-        this.chef = chef;
-    }
-
-    public List<Membre> getMembres() {
-        return membres;
-    }
-
-    public void setMembres(List<Membre> membres) {
-        this.membres = membres;
-    }
-
     public int getId() {
         return id;
     }
@@ -73,6 +64,16 @@ public class Equipe implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public List<Membre> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Membre> members) {
+        this.members = members;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -96,7 +97,10 @@ public class Equipe implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipe{" + "id=" + id + ", nom=" + nom + ", chef=" + chef + '}';
+        return "Equipe{" + "id=" + id + ", nom=" + nom + '}';
     }
+
+
+
 
 }

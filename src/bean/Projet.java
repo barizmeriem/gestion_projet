@@ -9,8 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -24,7 +22,7 @@ public class Projet implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date debut_projet;
@@ -34,7 +32,7 @@ public class Projet implements Serializable {
     private double avancement;
     private double montant;
     private int jour_homme;
-//    private BigDecimal bigDecimal = new BigDecimal(0);
+//  private BigDecimal bigDecimal = new BigDecimal(0);
     @OneToMany
     private List<Module> modules;
     @OneToMany(mappedBy = "projet")
@@ -42,6 +40,8 @@ public class Projet implements Serializable {
     @OneToMany(mappedBy = "projet")
     private List<Membre> membres;
    
+  
+
     public Projet() {
     }
 
@@ -57,6 +57,13 @@ public class Projet implements Serializable {
         this.jour_homme = jour_homme;
     }
 
+    public List<Membre> getMembres() {
+        return membres;
+    }
+
+    public void setMembres(List<Membre> membres) {
+        this.membres = membres;
+    }
     public int getJour_homme() {
         return jour_homme;
     }
@@ -128,7 +135,6 @@ public class Projet implements Serializable {
 //    public void setBigDecimal(BigDecimal bigDecimal) {
 //        this.bigDecimal = bigDecimal;
 //    }
-
     public List<Module> getModules() {
         return modules;
     }

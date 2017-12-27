@@ -12,7 +12,7 @@ import Util.DaoEngigne;
 
 /**
  *
- * @author dell
+ * @author Meriem Bariz
  */
 public abstract class AbstractHelper<T> extends AbstractTableModel {
 

@@ -7,48 +7,44 @@ package bean;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /**
  *
- * @author @author O+M;
+ * @author Meriem;
  */
 @Entity
 public class Membre implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int CIN;
+    private int cin;
     private String password;
     private String nom;
     private String prenom;
     private int jour_homme;
     private String grade;
-    private Double budget;
+    @ManyToOne
+    private Projet projet; 
     @ManyToOne
     private Equipe equipe;
-    @ManyToOne
-    private Projet projet;
     
-    public Membre(int CIN, String password, String nom, String prenom, int jour_homme, String grade, Double budget) {
-        this.CIN = CIN;
+    
+    public Membre(int cin, String password, String nom, String prenom, int jour_homme, String grade) {
+        this.cin = cin;
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
         this.jour_homme = jour_homme;
         this.grade = grade;
-        this.budget = budget;
     }
 
     public Membre() {
     }
 
     public Membre(int CIN) {
-        this.CIN = CIN;
+        this.cin = CIN;
     }
 
     public Projet getProjet() {
@@ -58,13 +54,13 @@ public class Membre implements Serializable {
     public void setProjet(Projet projet) {
         this.projet = projet;
     }
-    
-    public int getCIN() {
-        return CIN;
+
+    public int getCin() {
+        return cin;
     }
 
-    public void setCIN(int CIN) {
-        this.CIN = CIN;
+    public void setCin(int cin) {
+        this.cin = cin;
     }
 
     public String getNom() {
@@ -91,7 +87,6 @@ public class Membre implements Serializable {
         this.password = password;
     }
 
-  
     public int getJour_homme() {
         return jour_homme;
     }
@@ -108,14 +103,6 @@ public class Membre implements Serializable {
         this.grade = grade;
     }
 
-    public Double getBudget() {
-        return budget;
-    }
-
-    public void setBudget(Double budget) {
-        this.budget = budget;
-    }
-
     public Equipe getEquipe() {
         return equipe;
     }
@@ -123,11 +110,13 @@ public class Membre implements Serializable {
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
     }
+    
+    
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + this.CIN;
+        hash = 89 * hash + this.cin;
         return hash;
     }
 
@@ -143,7 +132,7 @@ public class Membre implements Serializable {
             return false;
         }
         final Membre other = (Membre) obj;
-        if (this.CIN != other.CIN) {
+        if (this.cin != other.cin) {
             return false;
         }
         return true;
@@ -151,9 +140,7 @@ public class Membre implements Serializable {
 
     @Override
     public String toString() {
-        return "Membre{" + "CIN=" + CIN + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + ", jour_homme=" + jour_homme + ", grade=" + grade + ", budget=" + budget + '}';
+        return "Membre{" + "cin=" + cin + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + ", jour_homme=" + jour_homme + ", grade=" + grade + '}';
     }
 
-   
-    
 }

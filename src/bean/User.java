@@ -37,6 +37,19 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    public User() {
+    }
+
+    public User(String id) {
+        this.id = id;
+    }
+
+    public User(String id, String password) {
+        this.id = id;
+        this.password = password;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

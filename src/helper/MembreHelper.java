@@ -11,7 +11,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author YOUNES
+ * @author BARIZ
  */
 public class MembreHelper extends AbstractHelper<Membre> {
 
@@ -19,10 +19,13 @@ public class MembreHelper extends AbstractHelper<Membre> {
 
     static {
         titres = new AbstractHelperItem[]{
-            new AbstractHelperItem("CIN ", "CIN"),
-            new AbstractHelperItem("BUDGET ", "budget"),
+            new AbstractHelperItem("CIN ", "cin"),
             new AbstractHelperItem("GRADE ", "grade"),
+            new AbstractHelperItem("NOM ", "nom"),
+            new AbstractHelperItem("PRENOM ", "prenom"),
             new AbstractHelperItem("JOUR-HOMME ", "jour_homme"),
+            new AbstractHelperItem("PROJET_ID ", "projet"),
+            new AbstractHelperItem("EQUIPE_ID ", "equipe"),
             new AbstractHelperItem("PASSWORD ", "password")};
     }
 

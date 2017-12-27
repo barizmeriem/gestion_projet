@@ -5,7 +5,7 @@
  */
 package service;
 
-import Service.UserService;
+import Service.EquipeService;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,40 +17,41 @@ import static org.junit.Assert.*;
  *
  * @author Rachid Aitbouzkri
  */
-public class UserServiceTest {
-    
-    public UserServiceTest() {
+public class EquipeServiceTest {
+
+    public EquipeServiceTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of creerUser method, of class UserService.
+     * Test of creerEquipe method, of class EquipeService.
      */
     @Test
-    public void testCreerUser() {
-        System.out.println("creerUser");
-        String id = "B";
-        String password = "K";
-        UserService instance = new UserService();
+    public void testCreerEquipe() {
+        System.out.println("creerEquipe");
+        int id = 7;
+        String nom = "hihi.E_equipe";
+        int idprojet =4;
+        EquipeService instance = new EquipeService();
         int expResult = 1;
-        int result = instance.creerUser(id, password);
+        int result = instance.creerEquipe(id, nom, idprojet);
         assertEquals(expResult, result);
 
     }
-    
+
 }

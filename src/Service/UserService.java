@@ -6,7 +6,6 @@
 package Service;
 
 import bean.User;
-import Util.HashageUtil;
 
 /**
  *
@@ -18,9 +17,7 @@ public class UserService  extends AbstractFacade<User> {
         super(User.class);
     }
     public int creerUser(String id,String password){
-        User user=new User();
-        user.setId(id);
-        user.setPassword(password);
+        User user=new User(id, password);
         create(user);
         return 1;
     }
@@ -51,5 +48,13 @@ public class UserService  extends AbstractFacade<User> {
 //        user.setPassword(HashageUtil.sha256(user.getPassword()));
 //        super.create(user);
 //    }
+    
+    public static void main(String[] args) {
+        System.out.println("creerUser");
+        String id = "B";
+        String password = "K";
+        UserService instance = new UserService();
+        instance.creerUser(id, password);
+    }
 }
     

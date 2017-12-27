@@ -3,39 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Service;
+package service;
 
-
-import bean.Module;
-import bean.Tache;
+import Service.TacheService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Rachid Aitbouzkri
  */
-public class TacheService extends AbstractFacade<Tache>{
-    ModuleService moduleService = new ModuleService();
+public class TacheServiceTest {
     
-    public TacheService() {
-        super(Tache.class);
+    public TacheServiceTest() {
     }
-     public int creerTache(int id,String nom,String chemain,Date d_tache ,Date f_tache ,String précedent,String suivant,float pourcentage, int durée , int idmodule) {
-        Module module =moduleService.find(idmodule) ;
-        Tache t = new Tache(id, nom, chemain, précedent, suivant, pourcentage, pourcentage, durée);
-        t.setDebut_tache(d_tache);
-        t.setFin_tache(f_tache);
-        
-        t.setModule(module);
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
 
-        create(t);
-        return 1;
-    }
-  
-     public static void main(String[] args) throws ParseException {
-         
+    /**
+     * Test of creerTache method, of class TacheService.
+     */
+    @Test
+    public void testCreerTache() throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
          
         System.out.println("creerTache");
@@ -61,8 +71,10 @@ public class TacheService extends AbstractFacade<Tache>{
         int durée = 24;
         int idmodule = 1;
         TacheService instance = new TacheService();
+        int expResult = 1;
         instance.creerTache(id, nom, chemain,d_tache ,f_tache, précedent, suivant, pourcentage, durée, idmodule);
-    }
      
+  
+    }
     
 }

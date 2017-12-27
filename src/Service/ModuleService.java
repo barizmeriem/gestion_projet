@@ -6,39 +6,57 @@
 package Service;
 
 import bean.Module;
-import java.util.List;
+import bean.Projet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
  * @author M+O
  */
 public class ModuleService extends AbstractFacade<Module> {
+    
+    ProjetService projetService = new ProjetService();
 
     public ModuleService() {
         super(Module.class);
     }
-
-    public void initBD() {
-        for (int i = 0; i <= 10; i++) {
-            creerModule(i + 1,i,i%20,i * i);
-        }
-    }
-
-    public int creerModule(int id, float avancement, float pourcentage, int jour_homme) {
-        Module p = new Module();
-        p.setId(id);
-        p.setAvancement(avancement);
-        p.setPourcentage(pourcentage);
-        p.setJour_homme(jour_homme);
-        create(p);
+    public int creerModule(int id, float avancement, Date d_debut, Date d_fin, float pourcentage, int jour_homme, int idprojet) {
+        Projet projet = projetService.find(idprojet);
+        Module m = new Module(id, avancement, pourcentage, jour_homme);
+        m.setProjet(projet);
+        m.setDate_debut(d_debut);
+        m.setDate_fin(d_fin);
+        create(m);
         return 1;
     }
 
-    public List<Module> FindModuleByAvancement(String avancement) {
-
-        return getEntityManager().createQuery("SELECT p FROM Module p"
-                + " WHERE p.avancement>" + avancement).getResultList();
-
+//    public List<Module> FindModuleByAvancement(String avancement) {
+//
+//        return getEntityManager().createQuery("SELECT p FROM Module p"
+//                + " WHERE p.avancement>" + avancement).getResultList();
+//
+//    }
+    public static void main(String[] args) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("creerModule");
+        int id = 1;
+        float avancement = 34.1F;
+        
+        Date d_debut = null;
+        String date1="15/02/2018";
+        d_debut=simpleDateFormat.parse(date1);
+        
+        Date d_fin = null;
+        String date2="29/02/2018";
+        d_fin=simpleDateFormat.parse(date2);
+        
+        float pourcentage = 20.0F;
+        int jour_homme = 14;
+        int idprojet = 1;
+        ModuleService instance = new ModuleService();
+        instance.creerModule(id, avancement, d_debut, d_fin, pourcentage, jour_homme, idprojet);
+        
     }
-
 }

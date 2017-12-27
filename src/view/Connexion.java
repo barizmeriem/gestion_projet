@@ -12,7 +12,7 @@ import Util.Session;
 
 /**
  *
- * @author Rachid Aitbouzkri
+ * @author Bariz
  */
 public class Connexion extends javax.swing.JFrame {
 
