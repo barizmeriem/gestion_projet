@@ -283,7 +283,7 @@ public class ProjetListView extends javax.swing.JFrame {
         jTextField5.setText(projet.getNom()+"");
         jTextField6.setText(projet.getDebut_projet()+"");
         jTextField7.setText(projet.getFin_projet()+"");
-        membreHelper.setList(membreService.findByCin(projetHelper.getSelected().getId()));
+        membreHelper.setList(membreService.findByCin2(projetHelper.getSelected().getId()));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

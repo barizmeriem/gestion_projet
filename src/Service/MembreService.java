@@ -47,6 +47,10 @@ public class MembreService extends AbstractFacade<Membre> {
         List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.equipe.id=" + cin).getResultList();
         return res;
     }
+    public List<Membre> findByCin2(int cin) {
+        List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.projet.id=" + cin).getResultList();
+        return res;
+    }
 
     public static void main(String[] args) {
         System.out.println("saveMembre");
