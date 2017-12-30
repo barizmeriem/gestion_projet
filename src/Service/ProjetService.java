@@ -5,10 +5,12 @@
  */
 package Service;
 
+import bean.Equipe;
 import bean.Projet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -29,6 +31,10 @@ public class ProjetService extends AbstractFacade<Projet> {
         create(p);
         return 1;
     }
+//    public List<Projet> findById(int id) {
+//        List<Projet> res = getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.id=" +id+"").getResultList();
+//        return res;
+//    }
 
 //    public Projet testerLaDate(Date d_fin, int id) {
 //        return (Projet) getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.id="+id+" and p.fin_projet'" + d_fin + "'").getSingleResult();

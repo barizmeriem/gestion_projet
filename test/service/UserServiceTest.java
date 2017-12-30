@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Rachid Aitbouzkri
+ * @author Bariz
  */
 public class UserServiceTest {
     
@@ -44,8 +44,8 @@ public class UserServiceTest {
     @Test
     public void testCreerUser() {
         System.out.println("creerUser");
-        String id = "B";
-        String password = "K";
+        String id = "Bo";
+        String password = "Ko";
         UserService instance = new UserService();
         int expResult = 1;
         int result = instance.creerUser(id, password);

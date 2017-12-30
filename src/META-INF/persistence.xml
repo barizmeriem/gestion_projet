@@ -12,6 +12,7 @@
     <class>bean.EquipeProjet</class>
     <class>helper.EquipeHelper</class>
     <class>bean.EquipeMembre</class>
+    <class>bean.ProjetEquipe</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestion de projet?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

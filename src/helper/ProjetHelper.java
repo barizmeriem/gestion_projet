@@ -19,7 +19,6 @@ public class ProjetHelper extends AbstractHelper<Projet> {
 
     static {
         titres = new AbstractHelperItem[]{
-            new AbstractHelperItem("ID ", "id"),
             new AbstractHelperItem("NOM ", "nom"),
             new AbstractHelperItem("DEBUT_PROJET ", "debut_projet"),
             new AbstractHelperItem("FIN_PROJET ", "fin_projet"),

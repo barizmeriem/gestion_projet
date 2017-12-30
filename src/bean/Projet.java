@@ -39,6 +39,9 @@ public class Projet implements Serializable {
     private List<Paiement> paiemant;
     @OneToMany(mappedBy = "projet")
     private List<Membre> membres;
+    @OneToMany(mappedBy = "projet")
+    private List<ProjetEquipe> projetEquipes;
+    
    
   
 

@@ -36,6 +36,7 @@ public class EquipeService extends AbstractFacade<Equipe> {
         return res;
     }
     
+    
     public static void main(String[] args) {
         System.out.println("creerEquipe");
         int id = 7;

@@ -5,7 +5,7 @@
  */
 package helper;
 
-import bean.Equipe;
+import bean.EquipeMembre;
 import java.util.List;
 import javax.swing.JTable;
 
@@ -13,25 +13,26 @@ import javax.swing.JTable;
  *
  * @author Bariz
  */
-public class EquipeHelper extends AbstractHelper<Equipe> {
+public class EquipeMembreHelper extends AbstractHelper<EquipeMembre> {
 
     private static AbstractHelperItem[] titres;
 
     static {
         titres = new AbstractHelperItem[]{
-            new AbstractHelperItem("NOM ", "nom")
-          };
+            new AbstractHelperItem("DATE_AFFECTATION", "dateAffectation"),
+            new AbstractHelperItem("MEMBRE_ID ", "membre"),
+            new AbstractHelperItem("EQUIPE_ID ", "equipe")};
     }
 
-    public EquipeHelper(JTable jTable, List<Equipe> list) {
+    public EquipeMembreHelper(JTable jTable, List<EquipeMembre> list) {
         super(titres, jTable, list);
     }
 
-    public EquipeHelper(AbstractHelperItem[] abstractHelperItem, JTable jTable) {
+    public EquipeMembreHelper(AbstractHelperItem[] abstractHelperItem, JTable jTable) {
         super(titres, jTable);
     }
 
-    public EquipeHelper(JTable jTable) {
+    public EquipeMembreHelper(JTable jTable) {
         super(titres, jTable);
     }
 

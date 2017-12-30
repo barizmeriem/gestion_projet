@@ -6,9 +6,11 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -29,6 +31,8 @@ public class Membre implements Serializable {
     private Projet projet; 
     @ManyToOne
     private Equipe equipe;
+    @OneToMany(mappedBy = "membre")
+    private List<EquipeMembre> equipeMembres;
     
     
     public Membre(int cin, String password, String nom, String prenom, int jour_homme, String grade) {

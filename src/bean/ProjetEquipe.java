@@ -6,43 +6,47 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  *
- * @author O+M
+ * @author Bariz
  */
 @Entity
-public class Equipe implements Serializable {
+public class ProjetEquipe implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     private int id;
-    private String nom;
-    @OneToMany(mappedBy = "equipe")
-    private List< Membre > members;
     @ManyToOne
     private Projet projet;
-    @OneToMany(mappedBy = "equipe")
-    private List<EquipeMembre> equipeMembres;
-    @OneToMany(mappedBy = "equipe")
-    private List<ProjetEquipe> projetEquipes;
+    @ManyToOne
+    private Equipe equipe;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateAffectation;
 
-    public Equipe(int id) {
+    public ProjetEquipe() {
+    }
+
+    public ProjetEquipe(int id) {
         this.id = id;
     }
 
-    public Equipe() {
+    public ProjetEquipe(int id, Date dateAffectation) {
+        this.id = id;
+        this.dateAffectation = dateAffectation;
+    }
+    
+    public int getId() {
+        return id;
     }
 
-    public Equipe(int id, String nom) {
+    public void setId(int id) {
         this.id = id;
-        this.nom = nom;
-//        this.chef = chef;
     }
 
     public Projet getProjet() {
@@ -53,31 +57,21 @@ public class Equipe implements Serializable {
         this.projet = projet;
     }
 
-    public String getNom() {
-        return nom;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
-    public int getId() {
-        return id;
+    public Date getDateAffectation() {
+        return dateAffectation;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDateAffectation(Date dateAffectation) {
+        this.dateAffectation = dateAffectation;
     }
-
-    public List<Membre> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Membre> members) {
-        this.members = members;
-    }
-    
-    
 
     @Override
     public int hashCode() {
@@ -89,10 +83,10 @@ public class Equipe implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Equipe)) {
+        if (!(object instanceof ProjetEquipe)) {
             return false;
         }
-        Equipe other = (Equipe) object;
+        ProjetEquipe other = (ProjetEquipe) object;
         if (this.id != other.id) {
             return false;
         }
@@ -101,10 +95,7 @@ public class Equipe implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipe{" + "id=" + id + ", nom=" + nom + '}';
+        return "bean.ProjetEquipe[ id=" + id + " ]";
     }
-
-
-
-
+    
 }
