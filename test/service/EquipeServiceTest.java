@@ -6,6 +6,8 @@
 package service;
 
 import Service.EquipeService;
+import bean.Equipe;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,25 +17,25 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Rachid Aitbouzkri
+ * @author Bariz
  */
 public class EquipeServiceTest {
-
+    
     public EquipeServiceTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
     }
-
+    
     @After
     public void tearDown() {
     }
@@ -43,7 +45,7 @@ public class EquipeServiceTest {
      */
     @Test
     public void testCreerEquipe() {
-        System.out.println("creerEquipe");
+      System.out.println("creerEquipe");
         int id = 7;
         String nom = "hihi.E_equipe";
         int idprojet =4;
@@ -51,7 +53,23 @@ public class EquipeServiceTest {
         int expResult = 1;
         int result = instance.creerEquipe(id, nom, idprojet);
         assertEquals(expResult, result);
-
     }
 
+    /**
+     * Test of findById method, of class EquipeService.
+     */
+    @Test
+    public void testFindById() {
+        System.out.println("findById");
+        int id = 0;
+        EquipeService instance = new EquipeService();
+        List<Equipe> expResult = null;
+        List<Equipe> result = instance.findById(id);
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of main method, of class EquipeService.
+     */
+    
+    
 }

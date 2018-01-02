@@ -18,9 +18,11 @@ import java.util.List;
  * @author Bariz
  */
 public class MembreCreateView1 extends javax.swing.JFrame {
-MembreService membreService=new MembreService();
-MembreHelper membreHelper;
-List<Membre> membres=new ArrayList<>();
+
+    MembreService membreService = new MembreService();
+    MembreHelper membreHelper;
+    List<Membre> membres = new ArrayList<>();
+
     /**
      * Creates new form MembreCreateView1
      */
@@ -28,13 +30,15 @@ List<Membre> membres=new ArrayList<>();
         initComponents();
         initComb();
     }
-private void initComb(){
-   membres=membreService.findAll();
-    for (int i = 0; i < membres.size(); i++) {
-        Membre membre = membres.get(i);
-        jComboBox2.addItem(membre.getGrade());
+
+    private void initComb() {
+        membres = membreService.findAll();
+        for (int i = 0; i < membres.size(); i++) {
+            Membre membre = membres.get(i);
+            jComboBox2.addItem(membre.getGrade());
+        }
     }
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +69,7 @@ private void initComb(){
         jLabel28 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -209,23 +214,26 @@ private void initComb(){
                 .addGap(6, 6, 6))
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachid Aitbouzkri\\Desktop\\equipeMembre.jpg")); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(460, 500));
         jLabel4.setPreferredSize(new java.awt.Dimension(460, 500));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/li.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(843, 843, 843))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(215, 215, 215))))
         );
@@ -240,7 +248,10 @@ private void initComb(){
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(128, 128, 128)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -289,13 +300,13 @@ private void initComb(){
         m.setJour_homme(new Integer(jTextField14.getText() + ""));
         return m;
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         // TODO add your handling code here:
         Membre m = getParam();
         membreService.create(m);
-        TableauView table2=new TableauView();
+        TableauView table2 = new TableauView();
         table2.membreHelper.save(m);
         table2.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -341,6 +352,7 @@ private void initComb(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;

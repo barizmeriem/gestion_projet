@@ -8,9 +8,9 @@ package Service;
 import bean.Equipe;
 import bean.EquipeMembre;
 import bean.Membre;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -35,19 +35,52 @@ public class EquipeMembreService extends AbstractFacade<EquipeMembre> {
         create(equipeMembre);
         return 1;
     }
-
-    public static void main(String[] args) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("creerEquipeMembre");
-        int id = 1;
-        int idequipe = 1;
-
-        Date dateAffectation = null;
-        String date2 = "01/06/2015";
-        dateAffectation = simpleDateFormat.parse(date2);
-
-        int idmembre = 1;
-        EquipeMembreService instance = new EquipeMembreService();
-        instance.creerEquipeMembre(id, idequipe, dateAffectation, idmembre);
+    private List<Membre> AffecterEquipeMembre(Equipe e,Membre m,String grade){
+        List<Membre> res=new ArrayList();
+        EquipeMembreService ems=new EquipeMembreService();
+        if(m==null||e==null){
+            return null;
+        }else {
+           return getEntityManager().createQuery("SELECT em FROM EquipeMembre em  WHERE em.membre.grade='"+grade+"'").getResultList();
+        }
+       
     }
+    public List<EquipeMembre> findById(int id) {
+        List<EquipeMembre> res = getEntityManager().createQuery("SELECT em FROM EquipeMembre em WHERE em.id=" + id + "").getResultList();
+        return res;
+    }
+    
+    
+    
+    public int nbrMembre(String idEquipe) {
+        int nbr = 0;
+        Equipe equipe = equipeService.find(idEquipe);
+        List<EquipeMembre> equipemembres = findAll();
+        if (equipe == null) {
+            return -1;
+        } else {
+            for (int i = 0; i < equipemembres.size(); i++) {
+                EquipeMembre equipemembre = equipemembres.get(i);
+                if (equipemembre.getEquipe().equals(equipe)) {
+                    nbr++;
+                }
+            }
+            return nbr;
+        }
+    }
+
+//    public static void main(String[] args) throws ParseException {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        System.out.println("creerEquipeMembre");
+//        int id = 1;
+//        int idequipe = 1;
+//
+//        Date dateAffectation = null;
+//        String date2 = "01/06/2015";
+//        dateAffectation = simpleDateFormat.parse(date2);
+//
+//        int idmembre = 1;
+//        EquipeMembreService instance = new EquipeMembreService();
+//        instance.creerEquipeMembre(id, idequipe, dateAffectation, idmembre);
+//    }
 }

@@ -5,6 +5,7 @@
  */
 package helper;
 
+import Util.DateUtil;
 import bean.ProjetEquipe;
 import java.util.List;
 import javax.swing.JTable;
@@ -22,6 +23,16 @@ public class ProjetEquipeHelper extends AbstractHelper<ProjetEquipe> {
             new AbstractHelperItem("DATE_AFFECTATION", "dateAffectation"),
             new AbstractHelperItem("PROJET_ID ", "projet"),
             new AbstractHelperItem("EQUIPE_ID ", "equipe")};
+    }
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        if (list!=null && rowIndex < list.size()) {
+                if (columnIndex==0){
+                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDateAffectation() );
+                }
+                return super.getValueAt(rowIndex, columnIndex);
+        }
+        return "";
     }
 
     public ProjetEquipeHelper(JTable jTable, List<ProjetEquipe> list) {

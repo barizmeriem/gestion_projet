@@ -5,6 +5,7 @@
  */
 package helper;
 
+import Util.DateUtil;
 import bean.Projet;
 import java.util.List;
 import javax.swing.JTable;
@@ -27,6 +28,25 @@ public class ProjetHelper extends AbstractHelper<Projet> {
             new AbstractHelperItem("Avancement","avancement")};
 
 
+    }
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        if (list!=null && rowIndex < list.size()) {
+                if (columnIndex==1){
+                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDebut_projet() );
+                }
+                return super.getValueAt(rowIndex, columnIndex);
+        }
+        return "";
+    }
+    public Object getValueAt1(int rowIndex, int columnIndex) {
+        if (list!=null && rowIndex < list.size()) {
+                if (columnIndex==2){
+                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getFin_projet() );
+                }
+                return super.getValueAt(rowIndex, columnIndex);
+        }
+        return "";
     }
 
     public ProjetHelper(JTable jTable, List<Projet> list) {

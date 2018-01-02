@@ -5,6 +5,7 @@
  */
 package helper;
 
+import Util.DateUtil;
 import bean.EquipeMembre;
 import java.util.List;
 import javax.swing.JTable;
@@ -23,7 +24,16 @@ public class EquipeMembreHelper extends AbstractHelper<EquipeMembre> {
             new AbstractHelperItem("MEMBRE_ID ", "membre"),
             new AbstractHelperItem("EQUIPE_ID ", "equipe")};
     }
-
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        if (list!=null && rowIndex < list.size()) {
+                if (columnIndex==0){
+                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDateAffectation() );
+                }
+                return super.getValueAt(rowIndex, columnIndex);
+        }
+        return "";
+    }
     public EquipeMembreHelper(JTable jTable, List<EquipeMembre> list) {
         super(titres, jTable, list);
     }

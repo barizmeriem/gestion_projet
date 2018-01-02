@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author O+M
+ * @author Meriem
  */
 @Entity
 public class Equipe implements Serializable {

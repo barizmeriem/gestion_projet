@@ -11,6 +11,7 @@ import bean.ProjetEquipe;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -35,20 +36,38 @@ public class ProjetEquipeService extends AbstractFacade<ProjetEquipe> {
         create(projetEquipe);
         return 1;
     }
-
-    public static void main(String[] args) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("creerProjetEquipe");
-        int id = 1;
-        int idequipe = 1;
-
-        Date dateAffectation = null;
-        String date2 = "01/06/2015";
-        dateAffectation = simpleDateFormat.parse(date2);
-
-        int idprojet = 1;
-        ProjetEquipeService instance = new ProjetEquipeService();
-        instance.creerProjetEquipe(id, idequipe, dateAffectation, idprojet);
+    
+    
+    public int nbrEquipe(String idProjet) {
+        int nbr = 0;
+        Projet projet = projetService.find(idProjet);
+        List<ProjetEquipe> projetequipes = findAll();
+        if (projet == null) {
+            return -1;
+        } else {
+            for (int i = 0; i < projetequipes.size(); i++) {
+                ProjetEquipe projetEquipe = projetequipes.get(i);
+                if (projetEquipe.getProjet().equals(projet)) {
+                    nbr++;
+                }
+            }
+            return nbr;
+        }
     }
+
+//    public static void main(String[] args) throws ParseException {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        System.out.println("creerProjetEquipe");
+//        int id = 1;
+//        int idequipe = 1;
+//
+//        Date dateAffectation = null;
+//        String date2 = "01/06/2015";
+//        dateAffectation = simpleDateFormat.parse(date2);
+//
+//        int idprojet = 1;
+//        ProjetEquipeService instance = new ProjetEquipeService();
+//        instance.creerProjetEquipe(id, idequipe, dateAffectation, idprojet);
+//    }
 }
 

@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author O+M;
+ * @author Meriem;
  */
 @Entity
 public class Module implements Serializable {

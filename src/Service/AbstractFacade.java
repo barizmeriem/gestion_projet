@@ -18,7 +18,7 @@ public class AbstractFacade<T> {
 
     private static final String PERSISTENCE_UNIT_NAME = "Gestion-ProjetPU";
     private Class<T> entityClass;
-    private EntityManager em;
+    EntityManager em;
 
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;

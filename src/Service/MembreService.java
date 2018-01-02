@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author M
+ * @author Meriem
  */
 public class MembreService extends AbstractFacade<Membre> {
 
@@ -47,23 +47,58 @@ public class MembreService extends AbstractFacade<Membre> {
         List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.equipe.id=" + cin).getResultList();
         return res;
     }
+
     public List<Membre> findByCin2(int cin) {
         List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.projet.id=" + cin).getResultList();
         return res;
     }
 
-    public static void main(String[] args) {
-        System.out.println("saveMembre");
-        String grade = "EMPLOYE";
-        int cin = 2;
-        String nom = "BO";
-        String prenom = "Y";
-        String password = "BH";
-        int jour_homme = 10;
-        int idprojet = 1;
-        int idequipe = 5;
-        MembreService instance = new MembreService();
-        instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
+    public List<Membre> findMembreByGrade(String grade) {
+        return getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.grade='" + grade + "'").getResultList();
     }
 
+    
+
+    public Membre findMembrebyEquipeAndProjet(Projet p, Equipe e) {
+        if (e == null || p == null) {
+            return null;
+        } else {
+            return (Membre) getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.equipe.id=" + e.getId() + " AND m.projet.id=" + p.getId()).getSingleResult();
+        }
+
+    }
+
+    public int isCollocataire(String idMembre1, String idMembre2) {
+        Membre membre1 = find(idMembre1);
+        Membre membre2 = find(idMembre2);
+        if (membre1 == null || membre2 == null) {
+            return -1;
+        } else if (!(membre1.getCin() == membre2.getCin())) {
+            return -2;
+        } else {
+            edit(membre2);
+            edit(membre1);
+            return 1;
+        }
+    }
+
+//    public static void main(String[] args) {
+//        System.out.println("saveMembre");
+//        String grade = "EMPLOYE";
+//        int cin = 2;
+//        String nom = "BO";
+//        String prenom = "Y";
+//        String password = "BH";
+//        int jour_homme = 10;
+//        int idprojet = 1;
+//        int idequipe = 5;
+//        MembreService instance = new MembreService();
+//        instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
+//    }
+//    public static void main(String[] args) {
+//        System.out.println("nbrMembre");
+//        String idEquipe = "1";
+//        MembreService instance = new MembreService();
+//        instance.nbrMembre(idEquipe);
+//    }
 }
