@@ -8,7 +8,6 @@ package view;
 import Service.EquipeService;
 import Service.ProjetEquipeService;
 import Service.ProjetService;
-import Util.DateUtil;
 import bean.Equipe;
 import bean.Projet;
 import bean.ProjetEquipe;

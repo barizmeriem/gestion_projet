@@ -106,7 +106,7 @@ public class all extends javax.swing.JFrame {
         jLabel12.setText("PROJET-EQUIPE");
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel13.setText("EQUIPE-MEMBER");
+        jLabel13.setText("EQUIPE-MEMBRE");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo-le-projet-francemusique.jpg"))); // NOI18N
         jButton1.setText("jButton1");

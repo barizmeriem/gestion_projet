@@ -289,7 +289,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="EQUIPE-MEMBER"/>
+            <Property name="text" type="java.lang.String" value="EQUIPE-MEMBRE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

@@ -20,35 +20,28 @@ public class ProjetHelper extends AbstractHelper<Projet> {
 
     static {
         titres = new AbstractHelperItem[]{
+            new AbstractHelperItem("ID ", "id"),
             new AbstractHelperItem("NOM ", "nom"),
             new AbstractHelperItem("DEBUT_PROJET ", "debut_projet"),
             new AbstractHelperItem("FIN_PROJET ", "fin_projet"),
             new AbstractHelperItem("MONTANT ", "montant"),
             new AbstractHelperItem("JOUR_HOMME ", "jour_homme"),
-            new AbstractHelperItem("Avancement","avancement")};
-
+            new AbstractHelperItem("Avancement", "avancement"),};
 
     }
+
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list!=null && rowIndex < list.size()) {
-                if (columnIndex==1){
-                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDebut_projet() );
-                }
-                return super.getValueAt(rowIndex, columnIndex);
+        if (list != null && rowIndex < list.size()) {
+            if (columnIndex == 2) {
+                return DateUtil.formateDate("dd-MM-yyyy", list.get(rowIndex).getDebut_projet());
+            } else if (columnIndex == 3) {
+                return DateUtil.formateDate("dd-MM-yyyy", list.get(rowIndex).getFin_projet());
+            }
+            return super.getValueAt(rowIndex, columnIndex);
         }
         return "";
     }
-    public Object getValueAt1(int rowIndex, int columnIndex) {
-        if (list!=null && rowIndex < list.size()) {
-                if (columnIndex==2){
-                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getFin_projet() );
-                }
-                return super.getValueAt(rowIndex, columnIndex);
-        }
-        return "";
-    }
-
     public ProjetHelper(JTable jTable, List<Projet> list) {
         super(titres, jTable, list);
     }
@@ -61,6 +54,4 @@ public class ProjetHelper extends AbstractHelper<Projet> {
         super(titres, jTable);
     }
 
-
-  
 }
