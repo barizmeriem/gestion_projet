@@ -39,37 +39,27 @@ public class EquipeServiceTest {
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of creerEquipe method, of class EquipeService.
-     */
-    @Test
-    public void testCreerEquipe() {
-      System.out.println("creerEquipe");
-        int id = 7;
-        String nom = "hihi.E_equipe";
-        int idprojet =4;
-        EquipeService instance = new EquipeService();
-        int expResult = 1;
-        int result = instance.creerEquipe(id, nom, idprojet);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of findById method, of class EquipeService.
-     */
-    @Test
-    public void testFindById() {
-        System.out.println("findById");
-        int id = 0;
-        EquipeService instance = new EquipeService();
-        List<Equipe> expResult = null;
-        List<Equipe> result = instance.findById(id);
-        assertEquals(expResult, result);
-    }
-    /**
-     * Test of main method, of class EquipeService.
-     */
+//------------------------------------------------
+//    @Test
+//    public void testCreerEquipe() {
+//      System.out.println("creerEquipe");
+//        int id = 15;
+//        String nom = "Amar.E_equipe";
+//        int idprojet =3;
+//        EquipeService instance = new EquipeService();
+//        int expResult = 1;
+//        int result = instance.creerEquipe(id, nom, idprojet);
+//        assertEquals(expResult, result);
+//    }
+//-----------------------------------------
+//    @Test
+//    public void testFindById() {
+//        System.out.println("findById");
+//        int id = 15;
+//        EquipeService instance = new EquipeService();
+//        List<Equipe> result = instance.findById(id);
+//        System.out.println(result);
+//    }
     
     
 }

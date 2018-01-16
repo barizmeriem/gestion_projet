@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Rachid Aitbouzkri
+ * @author Bariz Meriem
  */
 public class TacheServiceTest {
     
@@ -44,37 +44,74 @@ public class TacheServiceTest {
     /**
      * Test of creerTache method, of class TacheService.
      */
+//     @Test
+//    public void testCreerTache() throws ParseException {
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//         
+//        System.out.println("creerTache");
+//        int id = 1;
+//        String nom = "BEGNING";
+//        String chemain = "creer des listes";
+//        
+//        
+//        Date d_tache= null;
+//        String date1="01/12/2004";
+//        d_tache=simpleDateFormat.parse(date1);
+//        
+//        
+//        
+//        
+//        Date f_tache = null;
+//        String date2="08/08/2004";
+//        f_tache=simpleDateFormat.parse(date1);
+//        
+//        String précedent = "controle";
+//        String suivant = "ratrrapage ";
+//        float pourcentage = 20.10F;
+//        int durée = 32;
+//        int idmodule = 4;
+//        TacheService instance = new TacheService();
+//        int expResult = 1;
+//        instance.creerTache(id, nom, chemain,d_tache ,f_tache, précedent, suivant, pourcentage, durée, idmodule);
+//     
+//  
+//    }
+
+    
+//    @Test
+//    public void testCount() {
+//        System.out.println("count");
+//        int idtache = 1;
+//        TacheService instance = new TacheService();
+//        int expResult = 1;
+//        int result = instance.count(idtache);
+//        assertEquals(expResult, result);
+//    }
+
+    
+//    @Test
+//    public void testModifier() {
+//        System.out.println("modifier");
+//        String chemin = "";
+//        TacheService instance = new TacheService();
+//        int expResult = 0;
+//        int result = instance.modifier(chemin);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of findByName method, of class TacheService.
+//     */
     @Test
-    public void testCreerTache() throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-         
-        System.out.println("creerTache");
-        int id = 2;
-        String nom = "Creation";
-        String chemain = "apres laccomplissement de linitialisation ";
-        
-        
-        Date d_tache= null;
-        String date1="01/02/2018";
-        d_tache=simpleDateFormat.parse(date1);
-        
-        
-        
-        
-        Date f_tache = null;
-        String date2="10/02/2018";
-        f_tache=simpleDateFormat.parse(date1);
-        
-        String précedent = "initialisation";
-        String suivant = "laffectation ";
-        float pourcentage = 37.10F;
-        int durée = 24;
-        int idmodule = 1;
+    public void testFindByName() {
+        System.out.println("findByName");
+        String name = "MINO";
         TacheService instance = new TacheService();
         int expResult = 1;
-        instance.creerTache(id, nom, chemain,d_tache ,f_tache, précedent, suivant, pourcentage, durée, idmodule);
-     
-  
+        int result = instance.findByName(name);
+        assertEquals(expResult, result);
     }
     
 }

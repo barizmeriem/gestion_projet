@@ -6,9 +6,11 @@
 package service;
 
 import Service.ModuleService;
+import bean.Module;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Rachid Aitbouzkri
+ * @author Bariz
  */
 public class ModuleServiceTest {
     
@@ -41,29 +43,48 @@ public class ModuleServiceTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of creerModule method, of class ModuleService.
-     */
-    @Test
-    public void testCreerModule() throws ParseException {
-        System.out.println("creerModule");
-        int id = 1;
-        float avancement = 34.1F;
-        Date d_debut = null;
-         String date1="15/02/2018";
-         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-         d_debut=simpleDateFormat.parse(date1);
-        Date d_fin = null;
-        String date2="29/02/2018";
-         d_debut=simpleDateFormat.parse(date2);
-        float pourcentage = 20.0F;
-        int jour_homme = 14;
-        int idprojet = 1;
-        ModuleService instance = new ModuleService();
-        int expResult = 1;
-        int result = instance.creerModule(id, avancement, d_debut, d_fin, pourcentage, jour_homme, idprojet);
-        assertEquals(expResult, result);
-
-    }
+//    @Test
+//    public void testCreerModule() throws ParseException {
+//        System.out.println("creerModule");
+//        int id = 5;
+//        float avancement = 900.1F;
+//        
+//        Date d_debut = null;
+//         String date1="16/07/2014";
+//         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//         d_debut=simpleDateFormat.parse(date1);
+//         
+//        Date d_fin = null;
+//        String date2="06/12/2005";
+//         d_fin=simpleDateFormat.parse(date2);
+//         
+//        float pourcentage = 500.0F;
+//        int jour_homme = 13;
+//        int idprojet = 4;
+//        ModuleService instance = new ModuleService();
+//        int expResult = 1;
+//        int result = instance.creerModule(id, avancement, d_debut, d_fin, pourcentage, jour_homme, idprojet);
+//        assertEquals(expResult, result);
+//
+//    }
+//------------------------------------------------------
+//    @Test
+//    public void testFindModuleByAvancement() {
+//        System.out.println("FindModuleByAvancement");
+//        float avancement = 500.0F;
+//        ModuleService instance = new ModuleService();
+//        List<Module> result = instance.FindModuleByAvancement(avancement);
+//        System.out.println(result);
+//    }
+//-----------------------------------------------------
+//    @Test
+//    public void testCount() {
+//        System.out.println("count");
+//        int idmodule = 5;
+//        ModuleService instance = new ModuleService();
+//        int expResult = 1;
+//        int result = instance.count(idmodule);
+//        System.out.println(result);
+//    }
     
 }

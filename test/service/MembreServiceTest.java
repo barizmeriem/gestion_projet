@@ -6,7 +6,9 @@
 package service;
 
 import Service.MembreService;
+import bean.Equipe;
 import bean.Membre;
+import bean.Projet;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,65 +42,71 @@ public class MembreServiceTest {
     public void tearDown() {
     }
 
-    
-    /**
-     * Test of findByCin method, of class MembreService.
-     */
-    @Test
-    public void testFindByCin() {
-        System.out.println("findByCin");
-        int cin = 0;
-        MembreService instance = new MembreService();
-        List<Membre> expResult = null;
-        List<Membre> result = instance.findByCin(cin);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of findByCin2 method, of class MembreService.
-     */
-    @Test
-    public void testFindByCin2() {
-        System.out.println("findByCin2");
-        int cin = 0;
-        MembreService instance = new MembreService();
-        List<Membre> expResult = null;
-        List<Membre> result = instance.findByCin2(cin);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of nbrMembre method, of class MembreService.
-     */
+        //-----------------------------------------------------
 //    @Test
-//    public void testNbrMembre() {
-//        System.out.println("nbrMembre");
-//        String idEquipe = "1";
+//    public void testSaveMembre() {
+//        System.out.println("saveMembre");
+//        String grade = "CHEF";
+//        int cin = 10;
+//        String nom = "YOUNES";
+//        String prenom = "ZOUNI";
+//        String password = "PROFESSEUR";
+//        int jour_homme = 1;
+//        int idprojet = 4;
+//        int idequipe = 5;
 //        MembreService instance = new MembreService();
 //        int expResult = 1;
-//        int result = instance.nbrMembre(idEquipe);
+//        int result = instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
 //        assertEquals(expResult, result);
+//
 //    }
-
-    /**
-     * Test of main method, of class MembreService.
-     */
+//-----------------------------------------------------
+//    @Test
+//    public void testFindByCin() {
+//        System.out.println("findByCin");
+//        int cin = 9;
+//        MembreService instance = new MembreService();
+//        List<Membre> result = instance.findByCin(cin);
+//        System.out.println(result);
+//    }
+//--------------------------------------------------
+//    @Test
+//    public void testFindByCin2() {
+//        System.out.println("findByCin2");
+//        int cin = 6;
+//        MembreService instance = new MembreService();
+//        List<Membre> result = instance.findByCin2(cin);
+//        System.out.println(result);
+//    }
+//----------------------------------------------------    
+//    @Test
+//    public void testFindMembreByGrade() {
+//        System.out.println("findMembreByGrade");
+//        String grade = "CHEF";
+//        MembreService instance = new MembreService();
+//        List<Membre> result = instance.findMembreByGrade(grade);
+//        System.out.println(result);
+//    }
+//-------------------------------------------------------
+//    @Test
+//    public void testFindMembrebyEquipeAndProjet() {
+//        System.out.println("findMembrebyEquipeAndProjet");
+//        Projet p = null;
+//        Equipe e = null;
+//        MembreService instance = new MembreService();
+//        Membre result = instance.findMembrebyEquipeAndProjet(p, e);
+//        System.out.println(result);
+//    }
+//---------------------------------------------------------
+//    @Test
+//    public void testIsCollocataire() {
+//        System.out.println("isCollocataire");
+//        int idMembre1 = 5;
+//        int idMembre2 = 6;
+//        MembreService instance = new MembreService();
+//        int expResult = 1;
+//        int result = instance.isCollocataire(idMembre1, idMembre2);
+//        System.out.println(result);
+//    }
     
-    @Test
-    public void testSaveMembre() {
-        System.out.println("saveMembre");
-        String grade = "EMPLOYE";
-        int cin = 2;
-        String nom = "BO";
-        String prenom = "Y";
-        String password = "BH";
-        int jour_homme = 10;
-        int idprojet = 1;
-        int idequipe = 5;
-        MembreService instance = new MembreService();
-        int expResult = 1;
-        int result = instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
-        assertEquals(expResult, result);
-
-    }
 }
