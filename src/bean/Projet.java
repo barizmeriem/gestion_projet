@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author O+M;
+ * @author M;
  */
 @Entity
 public class Projet implements Serializable {
@@ -32,9 +32,9 @@ public class Projet implements Serializable {
     private double avancement;
     private double montant;
     private int jour_homme;
-//  private BigDecimal bigDecimal = new BigDecimal(0);
     @OneToMany
     private List<Module> modules;
+   
     @OneToMany(mappedBy = "projet")
     private List<Paiement> paiemant;
     @OneToMany(mappedBy = "projet")
@@ -58,6 +58,13 @@ public class Projet implements Serializable {
         this.avancement = avancement;
         this.montant = montant;
         this.jour_homme = jour_homme;
+    }
+    public List<ProjetEquipe> getProjetEquipes() {
+        return projetEquipes;
+    }
+
+    public void setProjetEquipes(List<ProjetEquipe> projetEquipes) {
+        this.projetEquipes = projetEquipes;
     }
 
     public List<Membre> getMembres() {
@@ -131,13 +138,6 @@ public class Projet implements Serializable {
         this.montant = montant;
     }
 
-//    public BigDecimal getBigDecimal() {
-//        return bigDecimal;
-//    }
-//
-//    public void setBigDecimal(BigDecimal bigDecimal) {
-//        this.bigDecimal = bigDecimal;
-//    }
     public List<Module> getModules() {
         return modules;
     }
@@ -173,7 +173,7 @@ public class Projet implements Serializable {
 
     @Override
     public String toString() {
-        return "Projet{" + "id=" + id + ", debut_projet=" + debut_projet + ", fin_projet=" + fin_projet + ", nom=" + nom + ", avancement=" + avancement + ", montant=" + montant + ", jour_homme=" + jour_homme + '}';
+        return nom ;
     }
 
 }

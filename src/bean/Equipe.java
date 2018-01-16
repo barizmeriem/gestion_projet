@@ -42,7 +42,6 @@ public class Equipe implements Serializable {
     public Equipe(int id, String nom) {
         this.id = id;
         this.nom = nom;
-//        this.chef = chef;
     }
 
     public Projet getProjet() {
@@ -101,7 +100,7 @@ public class Equipe implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipe{" + "id=" + id + ", nom=" + nom + '}';
+        return nom;
     }
 
 

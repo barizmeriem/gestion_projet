@@ -144,7 +144,7 @@ public class Membre implements Serializable {
 
     @Override
     public String toString() {
-        return "Membre{" + "cin=" + cin + ", password=" + password + ", nom=" + nom + ", prenom=" + prenom + ", jour_homme=" + jour_homme + ", grade=" + grade + '}';
+        return nom;
     }
 
 }
