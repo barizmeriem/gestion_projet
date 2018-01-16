@@ -21,14 +21,20 @@ public class ProjetEquipeHelper extends AbstractHelper<ProjetEquipe> {
     static {
         titres = new AbstractHelperItem[]{
             new AbstractHelperItem("DATE_AFFECTATION", "dateAffectation"),
-            new AbstractHelperItem("PROJET_ID ", "projet"),
-            new AbstractHelperItem("EQUIPE_ID ", "equipe")};
+            new AbstractHelperItem("PROJET_NOM ", "projet"),
+            new AbstractHelperItem("EQUIPE_NOM ", "equipe")};
     }
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         if (list!=null && rowIndex < list.size()) {
                 if (columnIndex==0){
                     return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDateAffectation() );
+                }
+                if (columnIndex==2){
+                    return list.get(rowIndex).getEquipe().getNom();
+                }
+                 if (columnIndex==1){
+                    return list.get(rowIndex).getProjet().getNom();
                 }
                 return super.getValueAt(rowIndex, columnIndex);
         }

@@ -20,20 +20,28 @@ public class EquipeMembreHelper extends AbstractHelper<EquipeMembre> {
 
     static {
         titres = new AbstractHelperItem[]{
-            new AbstractHelperItem("DATE_AFFECTATION", "dateAffectation"),
-            new AbstractHelperItem("MEMBRE_ID ", "membre"),
-            new AbstractHelperItem("EQUIPE_ID ", "equipe")};
+            new AbstractHelperItem("EQUIPE_NOM ", "equipe"),
+            new AbstractHelperItem("MEMBRE_NOM ", "membre"),
+            new AbstractHelperItem("DATE_AFFECTATION", "dateAffectation"),};
     }
+
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        if (list!=null && rowIndex < list.size()) {
-                if (columnIndex==0){
-                    return DateUtil.formateDate("dd-MM-yyyy",list.get(rowIndex).getDateAffectation() );
-                }
-                return super.getValueAt(rowIndex, columnIndex);
+        if (list != null && rowIndex < list.size()) {
+            if (columnIndex == 0) {
+                return DateUtil.formateDate("dd-MM-yyyy", list.get(rowIndex).getDateAffectation());
+            }
+//                if (columnIndex==1){
+//                    return list.get(rowIndex).getMembre().getNom();
+//                }
+            if (columnIndex == 2) {
+                return list.get(rowIndex).getEquipe().getNom();
+            }
+            return super.getValueAt(rowIndex, columnIndex);
         }
         return "";
     }
+
     public EquipeMembreHelper(JTable jTable, List<EquipeMembre> list) {
         super(titres, jTable, list);
     }

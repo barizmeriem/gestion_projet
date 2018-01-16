@@ -53,5 +53,13 @@ public class ProjetHelper extends AbstractHelper<Projet> {
     public ProjetHelper(JTable jTable) {
         super(titres, jTable);
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
