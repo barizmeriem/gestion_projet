@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef7cdb98-17f9-45b9-ba80-a0e00e6762e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFCC66"/>
+		</conditionalStyle>
+	</style>
+	<style name="np">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{projet}.equals("STOCKmanger")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#99FFCC"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="ENTREPRISE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="nom" class="java.lang.String">
+		<fieldDescription><![CDATA[nom]]></fieldDescription>
+	</field>
+	<field name="projet" class="bean.Projet">
+		<fieldDescription><![CDATA[projet]]></fieldDescription>
+	</field>
+	<variable name="vCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="229" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="-22" y="-22" width="600" height="190" backcolor="#990033" uuid="2d3b4e9a-3031-42fa-b81e-e0a557b79104"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="74" y="15" width="172" height="33" uuid="3df21ec8-8b71-48ad-8e67-89934740c4ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EQUIPES LIST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="117" width="159" height="25" forecolor="#999999" backcolor="#000000" uuid="0f861c4a-3655-48cc-8a5f-92f950410c05"/>
+				<box>
+					<pen lineStyle="Dashed" lineColor="#000000"/>
+					<topPen lineStyle="Dashed" lineColor="#000000"/>
+					<leftPen lineStyle="Dashed" lineColor="#000000"/>
+					<bottomPen lineStyle="Dashed" lineColor="#000000"/>
+					<rightPen lineStyle="Dashed" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[By BARIZ Meriem]]></text>
+			</staticText>
+			<image>
+				<reportElement x="380" y="0" width="175" height="178" uuid="c2e9b257-ce4d-4f58-962e-9f3d0060c230"/>
+				<imageExpression><![CDATA["C:\\Users\\Rachid Aitbouzkri\\Desktop\\lm.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="401" y="168" width="154" height="20" forecolor="#000000" uuid="43246691-a89a-4a2e-9e82-8be5ee6ff11c"/>
+				<box>
+					<pen lineColor="#FF0000"/>
+					<leftPen lineColor="#FF0000"/>
+					<bottomPen lineColor="#FF0000"/>
+					<rightPen lineColor="#FF0000"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tuesday 16 Janvier 2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="209" width="149" height="20" uuid="597610a3-109e-4af1-a190-26131b82b46f"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ENTREPRISE NAME:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="149" y="209" width="170" height="20" uuid="3cbe4838-b86a-4a51-8cc0-5f3c8f2817b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ENTREPRISE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" backcolor="#FF9999" uuid="c12a07fc-cbaa-4fa9-8409-9a11bbb92744"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" backcolor="#FF9999" uuid="83375227-2878-4523-a6ed-0b97b7192154"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" backcolor="#FF9999" uuid="270653e3-0ac6-4ecc-ac3d-98193dba8d19"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PROJET]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="0705b993-c1c0-4640-a3ef-12be46b19aed"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="20" uuid="6a801475-b782-476f-983c-d3f08b30c16a"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="np" mode="Opaque" x="370" y="0" width="185" height="20" uuid="b3caa7e5-61cf-49d9-a20b-9fbc6c6c435d"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[""+$F{projet}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="404" y="22" width="100" height="20" uuid="777221c2-fcb7-4e97-bca2-e47a1fad8893"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{vCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="22" width="100" height="20" uuid="74e37b5f-9987-4189-a9f0-637adc378f29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nbr_Equipe]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
