@@ -8,8 +8,6 @@ package Service;
 import bean.Equipe;
 import bean.Projet;
 import bean.ProjetEquipe;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -36,9 +34,13 @@ public class ProjetEquipeService extends AbstractFacade<ProjetEquipe> {
         create(projetEquipe);
         return 1;
     }
+    public List<ProjetEquipe> findById(int id) {
+        List<ProjetEquipe> res = getEntityManager().createQuery("SELECT pe FROM ProjetEquipe pe WHERE pe.id=" + id + "").getResultList();
+        return res;
+    }
     
     
-    public int nbrEquipe(String idProjet) {
+    public int nbrEquipe(int idProjet) {
         int nbr = 0;
         Projet projet = projetService.find(idProjet);
         List<ProjetEquipe> projetequipes = findAll();

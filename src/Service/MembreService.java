@@ -43,8 +43,8 @@ public class MembreService extends AbstractFacade<Membre> {
         return 1;
     }
 
-    public List<Membre> findByCin(int cin) {
-        List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.equipe.id=" + cin).getResultList();
+    public List<Membre> findByCin(int id) {
+         List<Membre> res = getEntityManager().createQuery("SELECT m FROM Membre m WHERE m.equipe.id=" + id).getResultList();
         return res;
     }
 
@@ -58,7 +58,6 @@ public class MembreService extends AbstractFacade<Membre> {
     }
 
     
-
     public Membre findMembrebyEquipeAndProjet(Projet p, Equipe e) {
         if (e == null || p == null) {
             return null;
@@ -68,12 +67,12 @@ public class MembreService extends AbstractFacade<Membre> {
 
     }
 
-    public int isCollocataire(String idMembre1, String idMembre2) {
+    public int isCollocataire(int idMembre1, int idMembre2) {
         Membre membre1 = find(idMembre1);
         Membre membre2 = find(idMembre2);
         if (membre1 == null || membre2 == null) {
             return -1;
-        } else if (!(membre1.getCin() == membre2.getCin())) {
+        } else if (!(membre1.getGrade() == membre2.getGrade())) {
             return -2;
         } else {
             edit(membre2);
@@ -82,23 +81,4 @@ public class MembreService extends AbstractFacade<Membre> {
         }
     }
 
-//    public static void main(String[] args) {
-//        System.out.println("saveMembre");
-//        String grade = "EMPLOYE";
-//        int cin = 2;
-//        String nom = "BO";
-//        String prenom = "Y";
-//        String password = "BH";
-//        int jour_homme = 10;
-//        int idprojet = 1;
-//        int idequipe = 5;
-//        MembreService instance = new MembreService();
-//        instance.saveMembre(grade, cin, nom, prenom, password, jour_homme, idprojet, idequipe);
-//    }
-//    public static void main(String[] args) {
-//        System.out.println("nbrMembre");
-//        String idEquipe = "1";
-//        MembreService instance = new MembreService();
-//        instance.nbrMembre(idEquipe);
-//    }
 }

@@ -23,9 +23,9 @@ public class PaiementService extends AbstractFacade<Paiement> {
         super(Paiement.class);
     }
 
-    public int creerPaiement(int id, double avance, Date d_paiment, int idprojet) {
+    public int creerPaiement(int id, double montant, Date d_paiment, int idprojet) {
         Projet projet = projetService.find(idprojet);
-        Paiement p = new Paiement(id, avance, d_paiment);
+        Paiement p = new Paiement(id, montant, d_paiment);
         p.setDatePaiement(d_paiment);
         p.setProjet(projet);
 
@@ -34,35 +34,17 @@ public class PaiementService extends AbstractFacade<Paiement> {
     }
 
     public List<Projet> findNonPaye() {
-        List<Projet> res = new ArrayList();
-        List<Paiement> paiements = findAll();
-        for (Paiement p : paiements) {
-            if (p.getMontant() < p.getProjet().getMontant()) {
-                //            res.add(e);
-            }
-            return null;
-        }
-        return res;
+        String query = "SELECT p FROM Paiement p WHERE p.montant = '0' ";
+        return getEntityManager().createQuery(query).getResultList();
+
+    }
+    public List<Projet> findPaye() {
+        String query = "SELECT p FROM Paiement p WHERE p.montant != '0' ";
+        return getEntityManager().createQuery(query).getResultList();
 
     }
 
     
 
-//    public static void main(String[] args) throws ParseException {
-//        
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        
-//        System.out.println("creerPaiement");
-//        int id = 1;
-//        double avance = 3000000.0;
-//        
-//        Date d_paiment = null;
-//         String date1="01/02/2018";
-//         d_paiment=simpleDateFormat.parse(date1);
-//         
-//        int idprojet = 1;
-//        PaiementService instance = new PaiementService();
-//        instance.creerPaiement(id, avance, d_paiment, idprojet);
-//        
-//    }
+
 }

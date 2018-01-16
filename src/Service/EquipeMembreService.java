@@ -35,24 +35,24 @@ public class EquipeMembreService extends AbstractFacade<EquipeMembre> {
         create(equipeMembre);
         return 1;
     }
-    private List<Membre> AffecterEquipeMembre(Equipe e,Membre m,String grade){
-        List<Membre> res=new ArrayList();
-        EquipeMembreService ems=new EquipeMembreService();
-        if(m==null||e==null){
+
+    private List<Membre> AffecterEquipeMembre(Equipe e, Membre m, String grade) {
+        List<Membre> res = new ArrayList();
+        EquipeMembreService ems = new EquipeMembreService();
+        if (m == null || e == null) {
             return null;
-        }else {
-           return getEntityManager().createQuery("SELECT em FROM EquipeMembre em  WHERE em.membre.grade='"+grade+"'").getResultList();
+        } else {
+            return getEntityManager().createQuery("SELECT em FROM EquipeMembre em  WHERE em.membre.grade='" + m.getGrade() + "'").getResultList();
         }
-       
+
     }
+
     public List<EquipeMembre> findById(int id) {
         List<EquipeMembre> res = getEntityManager().createQuery("SELECT em FROM EquipeMembre em WHERE em.id=" + id + "").getResultList();
         return res;
     }
-    
-    
-    
-    public int nbrMembre(String idEquipe) {
+
+    public int nbrMembre(int idEquipe) {
         int nbr = 0;
         Equipe equipe = equipeService.find(idEquipe);
         List<EquipeMembre> equipemembres = findAll();
@@ -69,18 +69,4 @@ public class EquipeMembreService extends AbstractFacade<EquipeMembre> {
         }
     }
 
-//    public static void main(String[] args) throws ParseException {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        System.out.println("creerEquipeMembre");
-//        int id = 1;
-//        int idequipe = 1;
-//
-//        Date dateAffectation = null;
-//        String date2 = "01/06/2015";
-//        dateAffectation = simpleDateFormat.parse(date2);
-//
-//        int idmembre = 1;
-//        EquipeMembreService instance = new EquipeMembreService();
-//        instance.creerEquipeMembre(id, idequipe, dateAffectation, idmembre);
-//    }
 }

@@ -9,7 +9,7 @@ import bean.User;
 
 /**
  *
- * @author M
+ * @author Meriem
  */
 public class UserService  extends AbstractFacade<User> {
 
@@ -49,12 +49,12 @@ public class UserService  extends AbstractFacade<User> {
 //        super.create(user);
 //    }
     
-    public static void main(String[] args) {
-        System.out.println("creerUser");
-        String id = "B";
-        String password = "K";
-        UserService instance = new UserService();
-        instance.creerUser(id, password);
-    }
+//    public static void main(String[] args) {
+//        System.out.println("creerUser");
+//        String id = "Bariz";
+//        String password = "Meriem";
+//        UserService instance = new UserService();
+//        instance.creerUser(id, password);
+//    }
 }
     

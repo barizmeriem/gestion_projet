@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Service;
 
+import bean.Module;
 import bean.Projet;
 import java.util.Date;
 import java.util.List;
@@ -35,7 +31,6 @@ public class ProjetService extends AbstractFacade<Projet> {
             return -2;
         } else {
             remove(projet);
-            edit(projet);
             return 1;
         }
     }
@@ -46,30 +41,20 @@ public class ProjetService extends AbstractFacade<Projet> {
     }
 
     public Projet findAncienProjet() {
+        return (Projet) getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.fin_projet = (SELECT min(c.fin_projet) FROM Projet c)").getSingleResult();
+    }
+
+    public List<Projet> findByName(String nom) {
+        return getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.nom='" + nom + "'").getResultList();
+    }
+
+    public Projet findNewProjet() {
         return (Projet) getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.fin_projet = (SELECT max(c.fin_projet) FROM Projet c)").getSingleResult();
     }
-    public int findByName(String nom){
-        return (int) getEntityManager().createQuery("SELECT p FROM Projet p WHERE p.nom='"+nom+"'").getSingleResult();
+
+    public List<Projet> FindProjetByAvancement(double avancement) {
+        return getEntityManager().createQuery("SELECT p FROM Projet p"
+                + " WHERE p.avancement" + avancement).getResultList();
     }
-    
-     
-    
-    
-//    public static void main(String[] args) throws ParseException {
-//        System.out.println("creerProjet");
-//        int id = 2;
-//        String nom = "STOCKmanger";
-//        Date d_debut = null;
-//         String date1="01/02/2018";
-//         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//         d_debut=simpleDateFormat.parse(date1);
-//        Date d_fin = null;
-//        String date2="01/05/2018";
-//        d_fin=simpleDateFormat.parse(date2);
-//        double avancement = 3000000.0;
-//        double montant = 9000000.0;
-//        int jour_homme = 90;
-//        ProjetService instance = new ProjetService();
-//        instance.creerProjet(id, nom, d_debut, d_fin, avancement, montant, jour_homme);
-//    }
+
 }

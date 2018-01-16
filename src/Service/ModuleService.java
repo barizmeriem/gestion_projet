@@ -41,25 +41,5 @@ public class ModuleService extends AbstractFacade<Module> {
         return projets.size();
     }
     
-//    public static void main(String[] args) throws ParseException {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        System.out.println("creerModule");
-//        int id = 1;
-//        float avancement = 34.1F;
-//        
-//        Date d_debut = null;
-//        String date1="15/02/2018";
-//        d_debut=simpleDateFormat.parse(date1);
-//        
-//        Date d_fin = null;
-//        String date2="29/02/2018";
-//        d_fin=simpleDateFormat.parse(date2);
-//        
-//        float pourcentage = 20.0F;
-//        int jour_homme = 14;
-//        int idprojet = 1;
-//        ModuleService instance = new ModuleService();
-//        instance.creerModule(id, avancement, d_debut, d_fin, pourcentage, jour_homme, idprojet);
-//        
-//    }
+
 }

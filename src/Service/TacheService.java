@@ -7,8 +7,6 @@ package Service;
 
 import bean.Module;
 import bean.Tache;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class TacheService extends AbstractFacade<Tache> {
     }
 
     public int count(int idtache) {
-        List<Module> modules = getEntityManager().createQuery("SELECT t FROM Tache t WHERE t.module=" + idtache).getResultList();
+        List<Module> modules = getEntityManager().createQuery("SELECT t FROM Tache t WHERE t.module.id=" + idtache).getResultList();
         return modules.size();
     }
 
@@ -85,4 +83,5 @@ public class TacheService extends AbstractFacade<Tache> {
 //    }
 //     
 
+    
 }
