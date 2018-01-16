@@ -24,7 +24,6 @@ public class ProjetListView extends javax.swing.JFrame {
 
     private void initHelper() {
         projetHelper = new ProjetHelper(jTable3, projetService.findAll());
-        membreHelper = new MembreHelper(jTable2);
     }
 
     public ProjetListView() {
@@ -79,7 +78,6 @@ public class ProjetListView extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -410,16 +408,6 @@ public class ProjetListView extends javax.swing.JFrame {
     }
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        Projet projet = projetHelper.getSelected();
-        jTextField1.setText(projet.getId() + "");
-        jTextField2.setText(projet.getMontant() + "");
-        jTextField3.setText(projet.getAvancement() + "");
-        jTextField4.setText(projet.getJour_homme()+"");
-        jTextField5.setText(projet.getNom()+"");
-        //jTextField6.setText(projet.getDebut_projet()+"");
-        jDateChooser1.setDate(projet.getDebut_projet());
-        jDateChooser2.setDate(projet.getFin_projet());
-        membreHelper.setList(membreService.findByCin2(projetHelper.getSelected().getId()));
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

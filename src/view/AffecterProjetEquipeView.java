@@ -53,8 +53,6 @@ ProjetEquipeService projetequipeService=new ProjetEquipeService();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
@@ -143,7 +141,7 @@ ProjetEquipeService projetequipeService=new ProjetEquipeService();
                     .addComponent(jLabel5)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
@@ -232,13 +230,13 @@ ProjetEquipeService projetequipeService=new ProjetEquipeService();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private ProjetEquipe getParam1(){
+        private ProjetEquipe getParam1(){
         ProjetEquipe pe = new ProjetEquipe();
         pe.setId(new Integer(jTextField20.getText() + ""));
         pe.setDateAffectation(jDateChooser1.getDate());
         Equipe equipe = equipeService.find(new Integer(jTextField21.getText() + ""));
         pe.setEquipe(equipe);
-        Projet p = projetService.find(new Integer(jTextField6.getText() + ""));
+        Projet p =  projetService.find(new Integer(jTextField6.getText() + ""));
         pe.setProjet(p);
         return pe;
     }

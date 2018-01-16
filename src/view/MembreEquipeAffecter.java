@@ -9,7 +9,6 @@ import Service.EquipeMembreService;
 import Service.EquipeService;
 import Service.MembreService;
 import Service.ProjetService;
-import Util.DateUtil;
 import bean.Equipe;
 import bean.EquipeMembre;
 import bean.Membre;
@@ -68,8 +67,6 @@ public class MembreEquipeAffecter extends javax.swing.JFrame {
         jTextField20 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -191,6 +188,12 @@ public class MembreEquipeAffecter extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
         jLabel4.setText("DateAffectation:");
 
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 2, 18)); // NOI18N
         jButton1.setText("Affecter");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +242,7 @@ public class MembreEquipeAffecter extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
@@ -323,30 +326,37 @@ public class MembreEquipeAffecter extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Equipe e =getParam();
+        Equipe e = getParam();
         equipeService.create(e);
-        TableauView table3=new TableauView();
+        TableauView table3 = new TableauView();
         table3.equipeHelper.save(e);
         table3.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-    private EquipeMembre getParam1(){
+    private EquipeMembre getParam1() {
         EquipeMembre em = new EquipeMembre();
         em.setId(new Integer(jTextField20.getText() + ""));
         em.setDateAffectation(jDateChooser1.getDate());
         Equipe equipe = equipeService.find(new Integer(jTextField21.getText() + ""));
         em.setEquipe(equipe);
-        em.setMembre(new Membre(new Integer(jTextField6.getText()+"")));
+        Membre m = membreService.find(new Integer(jTextField6.getText() + ""));
+        em.setMembre(m);
+        em.setMembre(new Membre(new Integer(jTextField6.getText() + "")));
         return em;
     }
-    
+
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        EquipeMembre em =getParam1();
+        EquipeMembre em = getParam1();
         equipemembreService.create(em);
-        TableauView table4=new TableauView();
+        TableauView table4 = new TableauView();
         table4.equipeMembreHelper.save(em);
         table4.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments
